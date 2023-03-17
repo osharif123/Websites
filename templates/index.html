@@ -3,24 +3,25 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-        <!--
-        Zoom Template 
-        http://www.templatemo.com/tm-414-zoom
-        -->
-        <title>Soccer Reservations for Candy Lane</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        
-        <!-- Google Web Font Embed -->
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,500,300,700' rel='stylesheet' type='text/css'>
-        
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/templatemo_main.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <!--
+    Zoom Template 
+    http://www.templatemo.com/tm-414-zoom
+    -->
+    <title>Soccer Reservations for Candy Lane</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    
+    <!-- Google Web Font Embed -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,500,300,700' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo_main.css') }}">
+</head>
+
     <body>
         <div id="main-wrapper">
             <!--[if lt IE 7]>
@@ -38,14 +39,15 @@
 
             <div class="image-section">
                 <div class="image-container">
-                    <img src="images/zoom-bg-1.jpg" id="menu-img" class="main-img inactive" alt="Zoom HTML5 Template by templatemo.com">
-                    <img src="images/zoom-bg-2.jpg" id="products-img" class="inactive" alt="Product">
-                    <img src="images/zoom-bg-3.jpg" id="services-img"  class="inactive" alt="Services">
-                    <img src="images/zoom-bg-4.jpg" id="about-img" class="inactive" alt="About">
-                    <img src="images/zoom-bg-5.jpg" id="contact-img" class="inactive" alt="Contact">
-                    <img src="images/zoom-bg-6.jpg" id="company-intro-img" class="main-img inactive" alt="Company Intro">
-                    <img src="images/zoom-bg-7.jpg" id="testimonials-img" class="main-img inactive" alt="Testimonials">
+                    <img src="{{ url_for('static', filename='images/zoom-bg-1.jpg') }}" id="menu-img" class="main-img inactive" alt="Zoom HTML5 Template by templatemo.com">
+                    <img src="{{ url_for('static', filename='images/zoom-bg-2.jpg') }}" id="products-img" class="inactive" alt="Product">
+                    <img src="{{ url_for('static', filename='images/zoom-bg-3.jpg') }}" id="services-img"  class="inactive" alt="Services">
+                    <img src="{{ url_for('static', filename='images/zoom-bg-4.jpg') }}" id="about-img" class="inactive" alt="About">
+                    <img src="{{ url_for('static', filename='images/zoom-bg-5.jpg') }}" id="contact-img" class="inactive" alt="Contact">
+                    <img src="{{ url_for('static', filename='images/zoom-bg-6.jpg') }}" id="company-intro-img" class="main-img inactive" alt="Company Intro">
+                    <img src="{{ url_for('static', filename='images/zoom-bg-7.jpg') }}" id="testimonials-img" class="main-img inactive" alt="Testimonials">
                 </div>
+                
             </div>
 
             <div class="container">
@@ -210,10 +212,10 @@
             <div id="status">&nbsp;</div>
         </div><!-- /#preloader -->
         
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script src="js/jquery.backstretch.min.js"></script>
-        <script src="js/templatemo_script.js"></script>
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js//jquery.backstretch.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/templatemo_script.js') }}"></script>
 
     </body> 
 </html>
