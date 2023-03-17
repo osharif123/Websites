@@ -92,21 +92,20 @@
                         </section><!-- /.menu-section -->    
                         <section id="products-section" class="inactive">
                             <div class="row">
-                                <div class="col-sm-6 col-md-6 col-lg-6 margin-bottom-20">
-                                    <div class="black-bg col-sm-12 col-md-12 col-lg-12">
-                                        <h2>WEB DESIGN</h2>
-                                        <p>Zoom is free HTML5 website template for everyone. You can use this template for any purpose. Credit goes to <a rel="nofollow" href="http://unsplash.com">Unsplash</a> for photos used in this template. Integer posuere quam a orci tempor, ut eleifend est vulputate. Nullam vitae lectus dui. Donec vulputate ac tortor id convallis. Sed nisi mauris, laoreet vitae lacus at, viverra viverra neque.</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6 col-lg-6">
-                                    <div class="black-bg col-sm-12 col-md-12 col-lg-12">
-                                        <h2>RESPONSIVE</h2>
-                                        <p><span class="green">Zoom template is a mobile-ready layout supporting all kinds of mobile devices or different screen sizes.</span> Integer posuere quam a orci tempor, ut eleifend est vulputate. Nullam vitae lectus dui. Donec vulputate ac tortor id convallis. Sed nisi mauris, laoreet vitae lacus at, viverra viverra neque. Curabitur nec aliquam lacus, nec molestie erat.</p>
-                                    </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <h2>Create Event</h2>
+                                    <form action="{{ url_for('create_event') }}" method="post">
+                                        <input type="password" name="password" placeholder="Password" required><br>
+                                        <input type="text" name="location" placeholder="Location" required><br>
+                                        <input type="text" name="time" placeholder="Time" required><br>
+                                        <input type="text" name="day" placeholder="Day" required><br>
+                                        <input type="text" name="date" placeholder="Date" required><br>
+                                        <button type="submit">Create Event</button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="row margin-top-20">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  pull-right">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                                     <a href="#menu" class="change-section">
                                         <div class="black-bg btn-menu">
                                             <h2>Back to menu</h2>
@@ -114,7 +113,8 @@
                                     </a>
                                 </div>
                             </div>
-                        </section><!-- /.product-section -->    
+                        </section>
+                            
                         <section id="services-section" class="inactive">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -138,17 +138,31 @@
                         <section id="about-section" class="inactive">
                             <div class="row">
                                 <div class="black-bg col-sm-12 col-md-12 col-lg-12">
-                                    <h2 class="text-center">About Us</h2>
-                                    <div class="col-sm-6 col-md-6">
-                                        <p>Cras sed venenatis nunc. Nunc porta blandit arcu ac fringilla. Quisque feugiat fringilla vulputate. Vestibulum tempus ligula ac leo scelerisque, nec bibendum neque molestie. Suspendisse potenti. Donec aliquet ligula quis convallis placerat. Sed mollis rhoncus varius. Donec non adipiscing mi, nec venenatis lorem. <a href="#">Vivamus</a> nec convallis ante, in aliquam massa.</p>
-                                    </div>
-                                    <div class="col-sm-6 col-md-6">
-                                        <p>Sed ac risus sit amet nisl tempus egestas. Sed a fermentum mauris, nec ultricies lorem. Maecenas auctor a augue sodales aliquam. Vestibulum imperdiet quam vel felis dignissim, sed iaculis nulla malesuada. Vivamus non rhoncus neque, sed elementum lorem. Aenean non leo mauris. Donec at suscipit lectus. Donec justo ipsum, scelerisque eu nisl in, sollicitudin posuere justo.</p>
-                                    </div>
+                                    <h2 class="text-center">Event Details</h2>
+                                    {% if events %}
+                                        {% for event in events %}
+                                            <p>Location: {{ event.location }}</p>
+                                            <p>Time: {{ event.time }}</p>
+                                            <p>Day: {{ event.day }}</p>
+                                            <p>Date: {{ event.date }}</p>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p>No event created yet.</p>
+                                    {% endif %}
+                                    <h2 class="text-center">Registrations</h2>
+                                    <ol>
+                                        {% for registration in registrations %}
+                                            <li>{{ registration.first_name }} {{ registration.last_name }} ({{ registration.timestamp }})
+                                                {% if registration.order in [13, 14] %}
+                                                    - Waitlist
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ol>
                                 </div>
                             </div>
                             <div class="row margin-top-20">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6  pull-right">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                                     <a href="#menu" class="change-section">
                                         <div class="black-bg btn-menu">
                                             <h2>Back to menu</h2>
@@ -156,38 +170,21 @@
                                     </a>
                                 </div>
                             </div>
-                        </section><!-- /.about-section -->    
+                        </section><!-- /.about-section -->
+                            
                         <section id="contact-section" class="inactive">
                             <div class="row">
                                 <div class="black-bg col-sm-12 col-md-12 col-lg-12">
-                                    <h2 class="text-center">Contact Us</h2>
-                                    
-                                    <div class="col-sm-12 col-md-12">
-                                        <p>Donec at felis nec orci dapibus consectetur. <a href="#">Integer</a> hendrerit aliquet velit, bibendum accumsan mi. Integer volutpat in velit at tincidunt. Proin varius magna nec risus accumsan blandit. Morbi eget vestibulum nisi, vitae luctus elit. In in nulla a elit rutrum pellentesque.</p>
-                                    </div>
-                                    
-                                    <div class="col-sm-6 col-md-6">
-                                        <div id="map-canvas"></div>
-                                        <p>456 Thamine Street, Digital Estate, Yangon 10630, Myanmar</p>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6 margin-bottom-20">
-                                        <form action="#" method="post">
-
-                                                <div class="form-group">
-                                                    <!--<label for="contact_name">Name</label>-->
-                                                    <input type="text" id="contact_name" class="form-control" placeholder="Name" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <!--<label for="contact_email">Email Address</label>-->
-                                                    <input type="text" id="contact_email" class="form-control" placeholder="Email Address" />
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Save My Spot</button>
-
+                                    <h2 class="text-center">Register</h2>
+                                    {% if registrations|length < 14 %}
+                                        <form action="{{ url_for('register') }}" method="post">
+                                            <input type="text" name="first_name" placeholder="First Name" required><br>
+                                            <input type="text" name="last_name" placeholder="Last Name" required><br>
+                                            <button type="submit">Register</button>
                                         </form>
-                                    </div>
-                                    
-                                    <div class="clearfix"></div>
+                                    {% else %}
+                                        <p>Registration is closed.</p>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="row margin-top-20">
