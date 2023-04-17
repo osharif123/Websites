@@ -31,7 +31,8 @@ def register():
         order = len(registrations) + 1
         registration = {"first_name": first_name, "last_name": last_name, "order": order, "timestamp": timestamp}
         registrations.append(registration)
+        print(registrations)
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

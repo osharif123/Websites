@@ -95,12 +95,22 @@
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <h2>Create Event</h2>
                                     <form action="{{ url_for('create_event') }}" method="post">
-                                        <input type="password" name="password" placeholder="Password" required><br>
-                                        <input type="text" name="location" placeholder="Location" required><br>
-                                        <input type="text" name="time" placeholder="Time" required><br>
-                                        <input type="text" name="day" placeholder="Day" required><br>
-                                        <input type="text" name="date" placeholder="Date" required><br>
-                                        <button type="submit">Create Event</button>
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="location" class="form-control" placeholder="Location" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="time" class="form-control" placeholder="Time" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="day" class="form-control" placeholder="Day" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="date" class="form-control" placeholder="Date" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Create Event</button>
                                     </form>
                                 </div>
                             </div>
@@ -113,7 +123,8 @@
                                     </a>
                                 </div>
                             </div>
-                        </section>
+                        </section><!-- /.products-section -->
+                        
                             
                         <section id="services-section" class="inactive">
                             <div class="row">
@@ -177,10 +188,15 @@
                                 <div class="black-bg col-sm-12 col-md-12 col-lg-12">
                                     <h2 class="text-center">Register</h2>
                                     {% if registrations|length < 14 %}
+                                    <div class="col-sm-6 col-md-6 margin-bottom-20">
                                         <form action="{{ url_for('register') }}" method="post">
-                                            <input type="text" name="first_name" placeholder="First Name" required><br>
-                                            <input type="text" name="last_name" placeholder="Last Name" required><br>
-                                            <button type="submit">Register</button>
+                                            <div class="form-group">
+                                                <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Register</button>
                                         </form>
                                     {% else %}
                                         <p>Registration is closed.</p>
@@ -196,7 +212,8 @@
                                     </a>
                                 </div>
                             </div>
-                        </section><!-- /.contact-section -->    
+                        </section><!-- /.contact-section -->
+                           
                            
                     </div><!-- /.templatemo-content -->  
                 </div><!-- /.templatemo-content-wrapper --> 
